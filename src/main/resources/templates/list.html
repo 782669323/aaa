@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>七牛文件列表</title>
+</head>
+<body>
+<ul th:each="fitem,stat:${fmap}">
+    <li><a th:href="@{${fitem.value}}"><span th:text="${fitem.key}">文件名</span></a>
+        <form action="/delete" method="get">
+            <input type="hidden" name="key" th:value="${fitem.key}">
+            <input type="submit" value="删除">
+        </form>
+    </li>
+</ul>
+</body>
+</html>
